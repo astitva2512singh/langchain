@@ -11,7 +11,12 @@ from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 
 # Load environment variables
-load_dotenv()
+if "OPENAI_API_KEY" in st.secrets:
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
+else:
+    from dotenv import load_dotenv
+    load_dotenv()
+    openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Constants
 FAISS_FOLDER = "faiss_index"
