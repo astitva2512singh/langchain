@@ -2,7 +2,7 @@ import os
 import time
 import shutil
 import streamlit as st
-
+import openai
 from dotenv import load_dotenv
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
